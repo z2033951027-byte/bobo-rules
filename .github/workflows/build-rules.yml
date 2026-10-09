@@ -1,0 +1,69 @@
+name: Build Bobo Rules
+
+on:
+  push:
+    paths:
+      - ".github/workflows/build-rules.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create rule source
+        run: |
+          cat > bobo-final-proxy.json <<'EOF'
+          {
+            "version": 1,
+            "rules": [
+              {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                  {
+                    "domain_regex": [
+                      "^.+$"
+                    ]
+                  },
+                  {
+                    "ip_cidr": [
+                      "0.0.0.0/0",
+                      "::/0"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+
+      - name: Compile SRS
+        run: |
+          docker run --rm \
+            -v "$PWD:/work" \
+            -w /work \
+            ghcr.io/sagernet/sing-box:v1.14.2 \
+            rule-set compile \
+            --output bobo-final-proxy.srs \
+            bobo-final-proxy.json
+
+      - name: Commit generated rules
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add bobo-final-proxy.json bobo-final-proxy.srs
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Build Bobo proxy rules"
+            git push
+          fi
