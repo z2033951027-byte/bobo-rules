@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "type": "logical",
+      "mode": "or",
+      "rules": [
+        {
+          "domain_regex": [
+            "^.+$"
+          ]
+        },
+        {
+          "ip_cidr": [
+            "0.0.0.0/0",
+            "::/0"
+          ]
+        }
+      ]
+    }
+  ]
+}
