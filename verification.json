@@ -1,0 +1,215 @@
+{
+  "compiler": "ghcr.io/sagernet/sing-box:v1.14.2",
+  "sources": [
+    [
+      "geosite-cn",
+      "SagerNet/sing-geosite",
+      "50375ffe2f3a40cad8ce2ecf6c37afcbb7e01984",
+      "e1442916bbb370dc46905ebb1700c75f3be4bc5311c708543b8a5dfc90f7b9d4"
+    ],
+    [
+      "geoip-cn",
+      "SagerNet/sing-geoip",
+      "eb32cd6ed4a16fcb3bf9a36ccebf28e45716ae84",
+      "81ada5cafd9d831adc48776f29cdfe55c9713d9287caeef9de925ef30f66cce4"
+    ]
+  ],
+  "checks": [
+    {
+      "target": "chatgpt.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "chatgpt.com.cdn.cloudflare.net",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "api.openai.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "auth.openai.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "cdn.oaistatic.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "files.oaiusercontent.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "api.workos.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "github.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "raw.githubusercontent.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "claude.ai",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "google.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "youtube.com",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "example.org",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "unlisted-overseas-example.net",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "1.1.1.1",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "8.8.8.8",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "2606:4700:4700::1111",
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "baidu.com",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "www.qq.com",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "taobao.com",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "jd.com",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "bilibili.com",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "www.gov.cn",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "unlisted-domestic-example.cn",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "localhost",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "router.local",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "nas.lan",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "printer",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "47.91.94.67",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "192.168.1.1",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "10.0.0.1",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "172.16.1.1",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "100.64.0.1",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "127.0.0.1",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "223.5.5.5",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "114.114.114.114",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "::1",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "fd00::1",
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "fe80::1",
+      "proxy": false,
+      "pass": true
+    }
+  ],
+  "scope": "Binary rule matching only; phone routing, DNS and live sessions are not verified."
+}
