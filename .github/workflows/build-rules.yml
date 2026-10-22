@@ -2,68 +2,37 @@ name: Build Bobo Rules
 
 on:
   push:
+    branches:
+      - main
     paths:
       - ".github/workflows/build-rules.yml"
+      - "scripts/build_rules.py"
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: bobo-rules-main
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Create rule source
-        run: |
-          cat > bobo-final-proxy.json <<'EOF'
-          {
-            "version": 1,
-            "rules": [
-              {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                  {
-                    "domain_regex": [
-                      "^.+$"
-                    ]
-                  },
-                  {
-                    "ip_cidr": [
-                      "0.0.0.0/0",
-                      "::/0"
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-          EOF
+      - name: Build and verify the single proxy rule set
+        run: python3 scripts/build_rules.py
 
-      - name: Compile SRS
-        run: |
-          docker run --rm \
-            -v "$PWD:/work" \
-            -w /work \
-            ghcr.io/sagernet/sing-box:v1.14.2 \
-            rule-set compile \
-            --output bobo-final-proxy.srs \
-            bobo-final-proxy.json
-
-      - name: Commit generated rules
+      - name: Commit verified artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add bobo-final-proxy.json bobo-final-proxy.srs
-
+          git add bobo-final-proxy.json bobo-final-proxy.srs verification.json
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git commit -m "Build Bobo proxy rules"
+            git commit -m "Build verified single-entry mobile rules"
             git push
           fi
