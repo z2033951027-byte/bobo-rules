@@ -1,4 +1,5 @@
 {
+  "builder_version": "2.3.1",
   "compiler": "ghcr.io/sagernet/sing-box:v1.14.2",
   "sources": [
     [
@@ -14,202 +15,267 @@
       "81ada5cafd9d831adc48776f29cdfe55c9713d9287caeef9de925ef30f66cce4"
     ]
   ],
+  "binary_format_version": 1,
+  "sha256": "153bb744c9e4414f7a14493ca5363f5d0246c85600e78688b94c78b5389ba810",
   "checks": [
     {
       "target": "chatgpt.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "chatgpt.com.cdn.cloudflare.net",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "api.openai.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "auth.openai.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "cdn.oaistatic.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "files.oaiusercontent.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "api.workos.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "github.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "raw.githubusercontent.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "claude.ai",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "google.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "youtube.com",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "example.org",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "unlisted-overseas-example.net",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "1.1.1.1",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "8.8.8.8",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "2606:4700:4700::1111",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "dit.whatsapp.net",
+      "expected_proxy": true,
       "proxy": true,
       "pass": true
     },
     {
       "target": "baidu.com",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "www.qq.com",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "taobao.com",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "jd.com",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "bilibili.com",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "www.gov.cn",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "unlisted-domestic-example.cn",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "localhost",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "router.local",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "nas.lan",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "printer",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "47.91.94.67",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "192.168.1.1",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "10.0.0.1",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "172.16.1.1",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "100.64.0.1",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "127.0.0.1",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "223.5.5.5",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "114.114.114.114",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "::1",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "fd00::1",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     },
     {
       "target": "fe80::1",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "douyin.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "weixin.qq.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "alipay.com",
+      "expected_proxy": false,
       "proxy": false,
       "pass": true
     }
   ],
-  "scope": "Binary rule matching only; phone routing, DNS and live sessions are not verified."
+  "scope": "Binary matching only; phone DNS, default route and live sessions are not verified."
 }
