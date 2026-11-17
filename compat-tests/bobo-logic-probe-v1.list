@@ -1,0 +1,4 @@
+# Bobo isolated format probe v1; NOT a production routing list.
+# Only reserved example.com test subdomains; no nodes, credentials, IP ranges or catch-all.
+# Import acceptance alone does not prove rule matching or full conversion compatibility.
+AND,((DOMAIN-SUFFIX,bobo-format-probe.example.com),(OR,((DOMAIN,allow.bobo-format-probe.example.com),(DOMAIN,deny.bobo-format-probe.example.com))),(NOT,((DOMAIN,deny.bobo-format-probe.example.com))))
