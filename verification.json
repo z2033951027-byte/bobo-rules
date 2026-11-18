@@ -1,5 +1,5 @@
 {
-  "builder_version": "2.3.1",
+  "builder_version": "2.3.3",
   "compiler": "ghcr.io/sagernet/sing-box:v1.14.2",
   "sources": [
     [
@@ -16,7 +16,7 @@
     ]
   ],
   "binary_format_version": 1,
-  "sha256": "153bb744c9e4414f7a14493ca5363f5d0246c85600e78688b94c78b5389ba810",
+  "sha256": "beed567d7f32944c760adfdce707c8df7879945e85ea4d606afb74776a6b9a79",
   "checks": [
     {
       "target": "chatgpt.com",
@@ -122,6 +122,90 @@
     },
     {
       "target": "dit.whatsapp.net",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "maps.googleapis.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "accounts.google.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "www.youtube.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "sub.fonts.gstatic.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "fonts.gstatic.com.example.org",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "notalivecdn.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "sub.dl.google.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "dl.google.com.example.org",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "drive.google.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "update.googleapis.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "alivecdn.com.example.org",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "notwesure100.com",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "nothome.arpa",
+      "expected_proxy": true,
+      "proxy": true,
+      "pass": true
+    },
+    {
+      "target": "172.32.0.1",
       "expected_proxy": true,
       "proxy": true,
       "pass": true
@@ -272,6 +356,150 @@
     },
     {
       "target": "alipay.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "api.bilibili.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "music.163.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "static.hdslb.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "pay.weixin.qq.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "api.m.taobao.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "home.arpa",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "router.home.arpa",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "172.31.255.255",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "fonts.googleapis.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "fonts.gstatic.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "fontfiles.googleapis.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "connectivitycheck.gstatic.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "dl.google.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "dl.l.google.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "edge-byted.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "haimian.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "alivecdn.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "wesure100.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "ydshengxue.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "cdn.edge-byted.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "cdn.haimian.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "cdn.alivecdn.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "cdn.wesure100.com",
+      "expected_proxy": false,
+      "proxy": false,
+      "pass": true
+    },
+    {
+      "target": "cdn.ydshengxue.com",
       "expected_proxy": false,
       "proxy": false,
       "pass": true

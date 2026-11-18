@@ -30,6 +30,26 @@
               ]
             },
             {
+              "domain": [
+                "fonts.googleapis.com",
+                "fonts.gstatic.com",
+                "fontfiles.googleapis.com",
+                "connectivitycheck.gstatic.com",
+                "dl.google.com",
+                "dl.l.google.com",
+                "home.arpa"
+              ]
+            },
+            {
+              "domain_suffix": [
+                "edge-byted.com",
+                "haimian.com",
+                "alivecdn.com",
+                "wesure100.com",
+                "ydshengxue.com"
+              ]
+            },
+            {
               "domain_suffix": [
                 "localhost",
                 ".localhost",
