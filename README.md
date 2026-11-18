@@ -3,7 +3,7 @@ rules mod for vpn
 
 ## 分流规则 2.3.3（2026-11-18）
 
-基线是 main 的 01a24d8。正式入口为 sing-box 单个 PROXY 规则集，未命中时由宿主走 DIRECT。订阅、节点、策略组和手动切换均由客户端管理。compat-tests 是先前的文本格式探针和实验候选，未与本版 SRS 同步，不能用它们复现本次结果。
+基线是 main 的 01a24d8。正式入口为 sing-box 单个 PROXY 规则集，未命中时由宿主走 DIRECT。订阅、节点、策略组和手动切换均由客户端管理。手机原有的[远程文本规则链接](https://raw.githubusercontent.com/z2033951027-byte/bobo-rules/main/compat-tests/bobo-proxy-candidate-v1.list)已同步到 2.3.3。测试直接解析整份文本，核对逻辑表达式与 JSON 规则一致，81 项域名和 IP 匹配全部通过。相对旧文本有 17 项改判。手机导入、刷新缓存和实际出站仍待真机验证。同目录的 logic-probe 仅用于格式探测。
 
 | 调整 | 原因及范围 |
 | --- | --- |
