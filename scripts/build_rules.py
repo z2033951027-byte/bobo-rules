@@ -36,6 +36,13 @@ PRIORITY = [
     "telegram.org", "t.me", "x.com", "twitter.com", "twimg.com", "facebook.com",
     "instagram.com", "threads.net",
 ]
+# Confirmed in SagerNet/sing-geosite geosite-cn at f845ad54a708500aa9c76be84cfaa04cc7141edd.
+CN_APP_SUFFIXES = ["edge-byted.com", "haimian.com", "alivecdn.com", "wesure100.com", "ydshengxue.com"]
+# These exact hosts are also in the pinned CN source, under otherwise proxied Google parents.
+CN_GOOGLE_HOSTS = [
+    "fonts.googleapis.com", "fonts.gstatic.com", "fontfiles.googleapis.com",
+    "connectivitycheck.gstatic.com", "dl.google.com", "dl.l.google.com",
+]
 PRIVATE = [
     "47.91.94.67/32", "0.0.0.0/8", "10.0.0.0/8", "100.64.0.0/10",
     "127.0.0.0/8", "169.254.0.0/16", "172.16.0.0/12", "192.168.0.0/16",
@@ -47,14 +54,20 @@ PROXY_CASES = [
     "cdn.oaistatic.com", "files.oaiusercontent.com", "api.workos.com", "github.com",
     "raw.githubusercontent.com", "claude.ai", "google.com", "youtube.com", "example.org",
     "unlisted-overseas-example.net", "1.1.1.1", "8.8.8.8", "2606:4700:4700::1111",
-    "dit.whatsapp.net",
+    "dit.whatsapp.net", "maps.googleapis.com", "accounts.google.com", "www.youtube.com",
+    "sub.fonts.gstatic.com", "fonts.gstatic.com.example.org", "notalivecdn.com",
+    "sub.dl.google.com", "dl.google.com.example.org", "drive.google.com", "update.googleapis.com",
+    "alivecdn.com.example.org", "notwesure100.com", "nothome.arpa", "172.32.0.1",
 ]
 DIRECT_CASES = [
     "baidu.com", "www.qq.com", "taobao.com", "jd.com", "bilibili.com", "www.gov.cn",
     "unlisted-domestic-example.cn", "localhost", "router.local", "nas.lan", "printer",
     "47.91.94.67", "192.168.1.1", "10.0.0.1", "172.16.1.1", "100.64.0.1",
     "127.0.0.1", "223.5.5.5", "114.114.114.114", "::1", "fd00::1", "fe80::1",
-    "douyin.com", "weixin.qq.com", "alipay.com",
+    "douyin.com", "weixin.qq.com", "alipay.com", "api.bilibili.com", "music.163.com",
+    "static.hdslb.com", "pay.weixin.qq.com", "api.m.taobao.com", "home.arpa",
+    "router.home.arpa", "172.31.255.255", *CN_GOOGLE_HOSTS, *CN_APP_SUFFIXES,
+    *["cdn." + domain for domain in CN_APP_SUFFIXES],
 ]
 OUTPUT_NAMES = ("bobo-final-proxy.json", "bobo-final-proxy.srs", "verification.json")
 
@@ -115,7 +128,7 @@ def download(url, tag):
     for attempt in range(3):
         log("download", f"{tag}: attempt={attempt + 1}/3 url={url}")
         try:
-            request = urllib.request.Request(url, headers={"User-Agent": "bobo-rules-builder/2.3.1"})
+            request = urllib.request.Request(url, headers={"User-Agent": "bobo-rules-builder/2.3.3"})
             with urllib.request.urlopen(request, timeout=60) as response:
                 data = response.read(32 * 1024 * 1024 + 1)
             if not data or len(data) > 32 * 1024 * 1024:
@@ -162,6 +175,8 @@ def make_rules(cn_rules):
     return {"version": 1, "rules": [{"type": "logical", "mode": "and", "rules": [
         {"type": "logical", "mode": "or", "invert": True, "rules": [
             {"ip_cidr": PRIVATE},
+            {"domain": [*CN_GOOGLE_HOSTS, "home.arpa"]},
+            {"domain_suffix": CN_APP_SUFFIXES},
             {"domain_suffix": ["localhost", ".localhost", ".local", ".lan", ".home.arpa"],
              "domain_regex": ["^[^.]+$"]},
         ]},
@@ -266,7 +281,7 @@ def build():
                     raise ValueError("Unexpected binary header; expected SRS format version 1")
             checks = verify(work_path(candidate_srs))
             report = {
-                "builder_version": "2.3.1", "compiler": IMAGE, "sources": SOURCES,
+                "builder_version": "2.3.3", "compiler": IMAGE, "sources": SOURCES,
                 "binary_format_version": 1,
                 "sha256": hashlib.sha256(candidate_srs.read_bytes()).hexdigest(), "checks": checks,
                 "scope": "Binary matching only; phone DNS, default route and live sessions are not verified.",
